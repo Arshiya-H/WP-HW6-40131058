@@ -1,0 +1,262 @@
+/* فونت و پایه */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, #0b1a2a, #12283a);
+    color: #e0e6f0;
+    margin: 0;
+    min-height: 100vh;
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    background: #182c4f;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.4rem;
+    text-align: center;
+    color: #aad4ff;
+    text-shadow: 0 0 8px #7eaaffaa;
+    user-select: none;
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 6px #7eaaff88; }
+    100% { text-shadow: 0 0 16px #7eaaffee; }
+}
+
+/* بخش انتخاب موقعیت */
+.location-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+button.btn-primary, select {
+    background-color: #1c3b6f;
+    border: none;
+    border-radius: 8px;
+    color: #cce0ff;
+    padding: 0.75rem 1.4rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px #0d1a36cc;
+    min-width: 180px;
+}
+
+button.btn-primary:hover, select:hover {
+    background-color: #2a5498;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px #0d2a5ecc;
+}
+
+button.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* نام موقعیت */
+.location-name {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #a6c9ff;
+    user-select: none;
+    min-height: 1.8rem;
+}
+
+/* تب‌ها */
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    border-bottom: 2px solid #31559a;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 1.4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #8fafdb;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+    user-select: none;
+}
+
+.tab-btn:hover {
+    color: #c4d6ff;
+}
+
+.tab-btn.active {
+    color: #a6c9ff;
+    border-bottom-color: #a6c9ff;
+    box-shadow: 0 2px 8px #3366ff88;
+}
+
+/* پنل‌ها */
+
+.tab-panel {
+    display: none;
+    padding-top: 1rem;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* وضعیت کنونی هوا */
+
+.weather-current {
+    background: #223b6f;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 15px #5577ccaa inset;
+    user-select: none;
+}
+
+.weather-current h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #aad4ff;
+}
+
+.weather-current p {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #c7d9ff;
+}
+
+/* پیش‌بینی هفت روز */
+
+.weather-weekly {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.weather-day {
+    background: #1b2c59;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #4368ccaa inset;
+    user-select: none;
+    transition: transform 0.3s ease;
+    cursor: default;
+}
+
+.weather-day:hover {
+    transform: scale(1.07);
+}
+
+.weather-day strong {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    color: #aac9ff;
+}
+
+/* پیش‌بینی ساعتی */
+
+.weather-hourly {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.8rem;
+    padding-bottom: 0.5rem;
+    user-select: none;
+}
+
+.weather-hourly .weather-hour {
+    background: #1b2c59;
+    min-width: 90px;
+    padding: 0.7rem 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #3b5dffcc inset;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #b0c9ff;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+    cursor: default;
+}
+
+.weather-hourly .weather-hour:hover {
+    background-color: #4466ffdd;
+    color: #f0f6ff;
+}
+
+.weather-hourly .weather-hour strong {
+    font-weight: 600;
+}
+
+/* لودینگ */
+
+#loading-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 40, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #334e9a;
+    border-top: 6px solid #6699ff;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ریسپانسیو برای موبایل */
+
+@media (max-width: 640px) {
+    .location-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button.btn-primary, select {
+        min-width: 100%;
+        max-width: 320px;
+    }
+
+    .weather-weekly {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .weather-hourly {
+        gap: 0.5rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .weather-hourly .weather-hour {
+        min-width: 75px;
+        font-size: 0.85rem;
+    }
+}

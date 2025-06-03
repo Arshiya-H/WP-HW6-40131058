@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <title>پیش‌بینی آب‌وهوا</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌦️ پیش‌بینی آب‌وهوا</h1>
+        </header>
+
+        <section id="location-section" class="location-section">
+            <button id="use-location-btn" class="btn-primary" onclick="getUserLocation()">📍 استفاده از موقعیت من</button>
+            <select id="city-select" onchange="onCitySelect()" aria-label="انتخاب شهر">
+                <option value="">-- انتخاب شهر --</option>
+                <option value="38.0962,46.2738,تبریز">تبریز</option>
+                <option value="37.5553,45.0725,ارومیه">ارومیه</option>
+                <option value="38.2498,48.2933,اردبیل">اردبیل</option>
+                <option value="32.6539,51.6660,اصفهان">اصفهان</option>
+                <option value="35.8400,50.9391,کرج">کرج</option>
+                <option value="33.6374,46.4223,ایلام">ایلام</option>
+                <option value="28.9234,50.8203,بوشهر">بوشهر</option>
+                <option value="35.6892,51.3890,تهران">تهران</option>
+                <option value="32.3266,50.8644,شهرکرد">شهرکرد</option>
+                <option value="32.8649,59.2163,بیرجند">بیرجند</option>
+                <option value="36.2605,59.6168,مشهد">مشهد</option>
+                <option value="37.4747,57.3310,بجنورد">بجنورد</option>
+                <option value="30.8406,50.8120,اهواز">اهواز</option>
+                <option value="36.6769,48.4960,زنجان">زنجان</option>
+                <option value="35.5769,53.3957,سمنان">سمنان</option>
+                <option value="29.4963,60.8629,زاهدان">زاهدان</option>
+                <option value="29.5918,52.5836,شیراز">شیراز</option>
+                <option value="36.2790,50.0050,قزوین">قزوین</option>
+                <option value="34.6399,50.8759,قم">قم</option>
+                <option value="35.3219,46.9862,سنندج">سنندج</option>
+                <option value="30.2839,57.0834,کرمان">کرمان</option>
+                <option value="34.3277,47.0778,کرمانشاه">کرمانشاه</option>
+                <option value="30.6689,51.5870,یاسوج">یاسوج</option>
+                <option value="36.8456,54.4438,گرگان">گرگان</option>
+                <option value="37.2808,49.5832,رشت">رشت</option>
+                <option value="33.4878,48.3558,خرم‌آباد">خرم‌آباد</option>
+                <option value="36.5658,53.0586,ساری">ساری</option>
+                <option value="34.0962,49.6892,اراک">اراک</option>
+                <option value="27.1832,56.2666,بندرعباس">بندرعباس</option>
+                <option value="34.7980,48.5146,همدان">همدان</option>
+                <option value="31.8974,54.3569,یزد">یزد</option>
+            </select>
+        </section>
+
+        <div id="current-location-name" class="location-name"></div>
+
+        <nav class="tabs" role="tablist" aria-label="تب‌های پیش‌بینی هوا">
+            <button role="tab" aria-selected="true" aria-controls="tab-current" id="tab-btn-current" tabindex="0" class="tab-btn active" onclick="switchTab('current')">وضعیت کنونی</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-daily" id="tab-btn-daily" tabindex="-1" class="tab-btn" onclick="switchTab('daily')">پیش‌بینی هفت روز</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-hourly" id="tab-btn-hourly" tabindex="-1" class="tab-btn" onclick="switchTab('hourly')">پیش‌بینی ساعتی</button>
+        </nav>
+
+        <main>
+            <section id="tab-current" role="tabpanel" aria-labelledby="tab-btn-current" class="tab-panel active">
+                <div id="weather-current" class="weather-current"></div>
+            </section>
+
+            <section id="tab-daily" role="tabpanel" aria-labelledby="tab-btn-daily" class="tab-panel">
+                <div id="weather-daily" class="weather-weekly"></div>
+            </section>
+
+            <section id="tab-hourly" role="tabpanel" aria-labelledby="tab-btn-hourly" class="tab-panel">
+                <div id="weather-hourly" class="weather-hourly"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="loading-overlay" role="alert" aria-live="assertive">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
