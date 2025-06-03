@@ -1,4 +1,3 @@
-// مدیریت دریافت موقعیت کاربر
 function getUserLocation() {
     showLoading();
     if (navigator.geolocation) {
@@ -35,13 +34,13 @@ function successLocation(position) {
 }
 
 function fallbackToIP() {
-    const apiKey = 'b5e7e2ecd6a94c259af4a99858193687';  // اینجا کلید API خودت را قرار بده
+    const apiKey = 'b5e7e2ecd6a94c259af4a99858193687';  
     const url = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}`;
 
-    console.log("شروع fallbackToIP با ipgeolocation.io");
+    console.log("start fallbackToIP");
     fetch(url)
         .then(res => {
-            console.log("Status پاسخ:", res.status);
+            console.log("Status :", res.status);
             if (!res.ok) {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
@@ -62,7 +61,7 @@ function fallbackToIP() {
             }
         })
         .catch(err => {
-            console.error("خطا در fallbackToIP:", err);
+            console.error("error fallbackToIP:", err);
             document.getElementById('weather-output').innerText = "خطا در دریافت موقعیت.";
         });
 }
